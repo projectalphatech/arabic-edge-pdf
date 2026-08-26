@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📄 arabic-edge-pdf
+# arabic-edge-pdf
 
 **Generate Arabic PDFs at the edge — zero tofu, zero libraries, works offline.**
 
@@ -12,17 +12,17 @@
 
 *Arabic renders perfectly on the first try. No more tofu boxes. No more broken RTL. No more font loading failures.*
 
-[Quick Start](#-quick-start) •
-[Demo](#-demo) •
-[How it works](#-how-it-works) •
-[API](#-api) •
-[FAQ](#-faq)
+[Quick Start](#quick-start) •
+[Demo](#demo) •
+[How it works](#how-it-works) •
+[API](#api) •
+[FAQ](#faq)
 
 </div>
 
 ---
 
-## 🤔 Why this exists
+## Why this exists
 
 Arabic on the web has a tofu problem:
 
@@ -41,7 +41,7 @@ Arabic on the web has a tofu problem:
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Status |
 |---|---|
@@ -55,7 +55,7 @@ Arabic on the web has a tofu problem:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Install
 
@@ -106,14 +106,12 @@ Done. Your Arabic PDF endpoint is live.
 
 ---
 
-## 📸 Demo
+## Demo
 
-### ❌ Traditional PDF libraries → tofu boxes, broken Arabic
-### ✅ arabic-edge-pdf → perfect Arabic, zero dependencies
+### Traditional PDF libraries → tofu boxes, broken Arabic
+### arabic-edge-pdf → perfect Arabic, zero dependencies
 
-![Arabic PDF comparison](https://github.com/projectalphatech/arabic-edge-pdf/blob/main/assets/comparison.png)
 
-<!-- Placeholder image — replace with a real before/after comparison -->
 
 ### Before (broken Arabic)
 ```
@@ -138,7 +136,7 @@ Done. Your Arabic PDF endpoint is live.
 
 ---
 
-## 🏗️ How it works
+## How it works
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -175,7 +173,7 @@ Browser Rendering runs on **Cloudflare Containers** for higher usage limits and 
 
 ---
 
-## 📚 API
+## API
 
 ### `generateArabicPDF(html, options?)`
 
@@ -208,7 +206,7 @@ Promise<Uint8Array>  // PDF binary data
 
 ---
 
-## 📋 FAQ
+## FAQ
 
 ### Does it really work offline?
 
@@ -237,7 +235,7 @@ Browser Rendering is in **open beta** as of August 2026. See the [official docs]
 
 ---
 
-## 🔗 Related tools and alternatives
+## Related tools and alternatives
 
 - **[Kamy.dev](https://kamy.dev/arabic-pdf-api)** — managed Arabic PDF API with RTL layout, HarfBuzz shaping, and currency placement
 - **[HarfBuzz](https://harfbuzz.github.io/)** — the open-source shaping engine used by Chrome, Android, and LibreOffice for Arabic text
@@ -246,13 +244,13 @@ Browser Rendering is in **open beta** as of August 2026. See the [official docs]
 
 ---
 
-## 🌍 Real-world use
+## Real-world use
 
 This powers dispatch manifests for travel companies, invoices for Arabic businesses, and reports that need to look perfect on every device.
 
 ---
 
-## 🔗 Part of the Project Alpha ecosystem
+## Part of the Project Alpha ecosystem
 
 - [agent-os](https://github.com/projectalphatech/agent-os) — the operating system for coordinating specialized AI agents
 - [structured-delegation](https://github.com/projectalphatech/structured-delegation) — delegation briefs + anti-patterns that prevent build failures
@@ -262,7 +260,7 @@ This powers dispatch manifests for travel companies, invoices for Arabic busines
 
 ---
 
-## 📄 License
+## License
 
 MIT © [Project Alpha Tech](https://projectalpha.tech)
 
