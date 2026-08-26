@@ -38,37 +38,42 @@ Arabic on the web has a tofu problem:
 
 ### Multi-format input
 
-Need to convert documents to Arabic PDF? Use [AnyDoc](https://github.com/firecrawl/anydoc) as a preprocessor:
+To turn an existing Word, Excel, or PowerPoint file into an Arabic PDF, convert it to
+Markdown first with [AnyDoc](https://github.com/firecrawl/anydoc), then post the result here:
 
 ```bash
-# Convert Word to Markdown
-npx @firecrawl/anydoc document.docx -o document.md
+npx @firecrawl/anydoc contract.docx -o contract.md
 
-# Then convert Markdown to Arabic PDF
 curl -X POST https://your-worker.workers.dev/pdf \
   -H "Content-Type: application/json" \
-  -d '{"markdown": "...", "language": "ar"}'
+  --data "$(jq -Rs '{markdown: ., language: "ar"}' < contract.md)"
 ```
 
-Or chain them in a Worker:
+To do the conversion inside a Worker, use the WebAssembly build — the default Node
+package ships a per-platform native binary that Workers cannot load:
 
 ```typescript
+// npm install @firecrawl/anydoc-wasm
+import init, { toMarkdownBytes } from '@firecrawl/anydoc-wasm';
 import { generateArabicPDF } from 'arabic-edge-pdf';
 
 export default {
   async fetch(request: Request) {
-    const file = await request.arrayBuffer();
-    
-    // Step 1: Convert any doc to Markdown (using AnyDoc or similar)
-    // Step 2: Convert Markdown to Arabic PDF
-    const pdf = await generateArabicPDF(markdown, { language: 'ar' });
-    
+    await init();
+
+    const bytes = new Uint8Array(await request.arrayBuffer());
+    const markdown = toMarkdownBytes(bytes, 'contract.docx');
+    const pdf = await generateArabicPDF(markdownToHtml(markdown), { format: 'a4' });
+
     return new Response(pdf, {
-      headers: { 'Content-Type': 'application/pdf' }
+      headers: { 'Content-Type': 'application/pdf' },
     });
-  }
+  },
 };
 ```
+
+Verify the `anydoc-wasm` bundle fits your Worker size limit before relying on this path;
+running AnyDoc as a separate build step is the safer default.
 
 ---
 
