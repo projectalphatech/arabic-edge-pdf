@@ -1,0 +1,13 @@
+{
+  "name": "arabic-edge-pdf",
+  "version": "1.0.0",
+  "description": "Generate Arabic PDFs at the edge — zero tofu, zero libraries, works offline. Cloudflare Workers + Browser Rendering.",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "files": ["src/"],
+  "license": "MIT",
+  "keywords": ["arabic", "pdf", "cloudflare", "workers", "browser-rendering", "typescript"],
+  "peerDependencies": {
+    "@cloudflare/workers-types": "^4.0.0"
+  }
+}
