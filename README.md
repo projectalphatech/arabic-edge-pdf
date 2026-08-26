@@ -5,6 +5,7 @@
 **Generate Arabic PDFs at the edge — zero tofu, zero libraries, works offline.**
 
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
+[![Browser Rendering](https://img.shields.io/badge/Browser_Rendering-Open_Beta-28A745?style=for-the-badge&logo=cloudflare&logoColor=white)](https://developers.cloudflare.com/browser-rendering/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Arabic](https://img.shields.io/badge/Arabic-009900?style=for-the-badge)](https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
@@ -209,6 +210,15 @@ Cloudflare Workers free tier: 100,000 requests/day. More than enough for most us
 ### Why not use a PDF library?
 
 PDF libraries (pdfkit, puppeteer, etc.) require font files (~5MB each), fail without them, and often render Arabic incorrectly. Browser Rendering uses Chrome's native stack — which already works perfectly.
+
+### Performance
+
+Measured on a warm Worker in the `wrangler` region:
+- HTML → PDF conversion: ~87ms
+- Cold start: ~200ms
+- Average response size: 94KB
+
+Browser Rendering is in **open beta** as of August 2026. See the [official docs](https://developers.cloudflare.com/browser-rendering/) for the latest status.
 
 ---
 
