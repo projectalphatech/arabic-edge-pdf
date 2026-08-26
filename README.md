@@ -22,7 +22,7 @@
 
 ---
 
-## Why this exists
+## 🤔 Why this exists
 
 Arabic on the web has a tofu problem:
 
@@ -32,12 +32,43 @@ Arabic on the web has a tofu problem:
 ❌ Wrong: Hel...               (fallback Latin)
 ```
 
-**The problem:** Most PDF generators don't support Arabic natively. They rely on:
-- Font loading (slow, fails offline)
-- OS fonts (inconsistent across platforms)
-- Static HTML (no dynamic data)
+**The problem:** Most PDF generators don't support Arabic natively. They rely on font loading (slow, fails offline), OS fonts (inconsistent), and static HTML (no dynamic data).
 
 **The solution:** Cloudflare Browser Rendering renders Arabic using Chrome's native font stack — at the edge, in milliseconds, with zero dependencies.
+
+### Multi-format input
+
+Need to convert documents to Arabic PDF? Use [AnyDoc](https://github.com/firecrawl/anydoc) as a preprocessor:
+
+```bash
+# Convert Word to Markdown
+npx @firecrawl/anydoc document.docx -o document.md
+
+# Then convert Markdown to Arabic PDF
+curl -X POST https://your-worker.workers.dev/pdf \
+  -H "Content-Type: application/json" \
+  -d '{"markdown": "...", "language": "ar"}'
+```
+
+Or chain them in a Worker:
+
+```typescript
+import { generateArabicPDF } from 'arabic-edge-pdf';
+
+export default {
+  async fetch(request: Request) {
+    const file = await request.arrayBuffer();
+    
+    // Step 1: Convert any doc to Markdown (using AnyDoc or similar)
+    // Step 2: Convert Markdown to Arabic PDF
+    const pdf = await generateArabicPDF(markdown, { language: 'ar' });
+    
+    return new Response(pdf, {
+      headers: { 'Content-Type': 'application/pdf' }
+    });
+  }
+};
+```
 
 ---
 
@@ -235,12 +266,14 @@ Browser Rendering is in **open beta** as of August 2026. See the [official docs]
 
 ---
 
-## Related tools and alternatives
+## 🔗 Related tools
 
-- **[Kamy.dev](https://kamy.dev/arabic-pdf-api)** — managed Arabic PDF API with RTL layout, HarfBuzz shaping, and currency placement
-- **[HarfBuzz](https://harfbuzz.github.io/)** — the open-source shaping engine used by Chrome, Android, and LibreOffice for Arabic text
-- **[CAMeL Tools](https://github.com/CAMeL-Lab/camel_tools)** — comprehensive Arabic NLP toolkit from NYU Abu Dhabi
-- **[Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B)** — leading Arabic LLM benchmark performance, can run on-premise via Ollama
+| Tool | What it does | How to use with arabic-edge-pdf |
+|---|---|---|
+| **[AnyDoc](https://github.com/firecrawl/anydoc)** | Convert 14 doc formats to Markdown | Preprocess documents before PDF generation |
+| **[Kamy.dev](https://kamy.dev/arabic-pdf-api)** | Managed Arabic PDF API | Alternative to self-hosted |
+| **[HarfBuzz](https://harfbuzz.github.io/)** | Arabic text shaping engine | Underlying tech for Arabic rendering |
+| **[Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B)** | Arabic LLM (local) | Generate Arabic content for PDFs |
 
 ---
 
