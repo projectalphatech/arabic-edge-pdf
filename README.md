@@ -22,7 +22,7 @@
 
 ---
 
-## 🤔 Why this exists
+## Why this exists
 
 Arabic on the web has a tofu problem:
 
@@ -266,7 +266,7 @@ Browser Rendering is in **open beta** as of August 2026. See the [official docs]
 
 ---
 
-## 🔗 Related tools
+## Related tools
 
 | Tool | What it does | How to use with arabic-edge-pdf |
 |---|---|---|
