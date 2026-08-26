@@ -165,6 +165,14 @@ Done. Your Arabic PDF endpoint is live.
 **Step 3:** Chrome renders Arabic perfectly (it's been doing this for 20 years)
 **Step 4:** You get back a PDF with zero tofu, zero broken connections
 
+Powered by **Cloudflare Browser Rendering** (now in **open beta** as of August 2026), which provides:
+- Live View for real-time debugging
+- Chrome DevTools Protocol (CDP) access
+- Session recordings
+- 4x higher concurrency limits
+
+Browser Rendering runs on **Cloudflare Containers** for higher usage limits and better reliability.
+
 ---
 
 ## 📚 API
@@ -212,7 +220,7 @@ Works with any language Chrome supports — Arabic, Hebrew, Persian, Urdu, etc.
 
 ### Is it free?
 
-Cloudflare Workers free tier: 100,000 requests/day. More than enough for most use cases.
+Cloudflare Workers free tier: 100,000 requests/day. Browser Rendering has separate pricing — check the [official docs](https://developers.cloudflare.com/browser-rendering/) for current rates.
 
 ### Why not use a PDF library?
 
@@ -226,6 +234,15 @@ Measured on a warm Worker in the `wrangler` region:
 - Average response size: 94KB
 
 Browser Rendering is in **open beta** as of August 2026. See the [official docs](https://developers.cloudflare.com/browser-rendering/) for the latest status.
+
+---
+
+## 🔗 Related tools and alternatives
+
+- **[Kamy.dev](https://kamy.dev/arabic-pdf-api)** — managed Arabic PDF API with RTL layout, HarfBuzz shaping, and currency placement
+- **[HarfBuzz](https://harfbuzz.github.io/)** — the open-source shaping engine used by Chrome, Android, and LibreOffice for Arabic text
+- **[CAMeL Tools](https://github.com/CAMeL-Lab/camel_tools)** — comprehensive Arabic NLP toolkit from NYU Abu Dhabi
+- **[Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B)** — leading Arabic LLM benchmark performance, can run on-premise via Ollama
 
 ---
 
