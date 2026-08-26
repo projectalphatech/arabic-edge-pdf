@@ -108,6 +108,13 @@ Done. Your Arabic PDF endpoint is live.
 
 ## 📸 Demo
 
+### ❌ Traditional PDF libraries → tofu boxes, broken Arabic
+### ✅ arabic-edge-pdf → perfect Arabic, zero dependencies
+
+![Arabic PDF comparison](https://github.com/projectalphatech/arabic-edge-pdf/blob/main/assets/comparison.png)
+
+<!-- Placeholder image — replace with a real before/after comparison -->
+
 ### Before (broken Arabic)
 ```
 ┌─────────────────────────────────────┐
@@ -225,6 +232,16 @@ Browser Rendering is in **open beta** as of August 2026. See the [official docs]
 ## 🌍 Real-world use
 
 This powers dispatch manifests for travel companies, invoices for Arabic businesses, and reports that need to look perfect on every device.
+
+---
+
+## 🔗 Part of the Project Alpha ecosystem
+
+- [agent-os](https://github.com/projectalphatech/agent-os) — the operating system for coordinating specialized AI agents
+- [structured-delegation](https://github.com/projectalphatech/structured-delegation) — delegation briefs + anti-patterns that prevent build failures
+- [arabic-edge-pdf](https://github.com/projectalphatech/arabic-edge-pdf) — Arabic PDF generation at the edge, zero tofu, zero libraries
+- [gps-cluster-engine](https://github.com/projectalphatech/gps-cluster-engine) — group GPS points by proximity with capacity constraints
+- [nextjs-cloudflare-deploy](https://github.com/projectalphatech/nextjs-cloudflare-deploy) — the definitive Next.js + Cloudflare Workers deployment guide
 
 ---
 
