@@ -22,6 +22,19 @@
 
 ---
 
+## Install as a Claude Code skill
+
+```bash
+/add-plugin projectalphatech/arabic-edge-pdf
+```
+
+Or manually:
+```bash
+git clone https://github.com/projectalphatech/arabic-edge-pdf ~/.claude/skills/arabic-edge-pdf
+```
+
+---
+
 ## Why this exists
 
 Arabic on the web has a tofu problem:

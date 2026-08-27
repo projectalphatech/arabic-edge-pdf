@@ -1,0 +1,17 @@
+{
+  "name": "arabic-edge-pdf",
+  "description": "Generate Arabic PDFs at the edge \u2014 zero tofu, zero font bundling, works offline. Uses Cloudflare Browser Rendering with Chrome's native Arabic shaping. Use when generating Arabic dispatch manifests, invoices, reports, or any RTL PDF.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Project Alpha Tech"
+  },
+  "homepage": "https://github.com/projectalphatech/arabic-edge-pdf",
+  "license": "MIT",
+  "keywords": [
+    "arabic",
+    "pdf",
+    "cloudflare",
+    "edge",
+    "rtl"
+  ]
+}
